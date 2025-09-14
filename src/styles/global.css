@@ -33,6 +33,14 @@ a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 a:focus-visible { outline: 2px dashed var(--accent); outline-offset: 3px; border-radius: 4px; }
 
+.header-link { 
+  color: inherit; 
+  text-decoration: none;
+}
+.header-link:hover { 
+  text-decoration: none;
+}
+
 .darker { color: var(--muted); }
 .primary { color: var(--primary); }
 
