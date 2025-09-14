@@ -1,10 +1,12 @@
 ---
 import Layout from "../components/Layout.astro";
+import * as Icons from "../components/icons";
+
 const links = [
-  { name: 'GitHub', url: 'https://github.com/vorkytaka' },
-  { name: 'LinkedIn', url: 'https://linkedin.com/in/' },
-  { name: 'Email', url: 'mailto:hello@vorky.dev' },
-  { name: 'CV / Resume', url: '/resume.pdf' },
+  { name: 'GitHub', url: 'https://github.com/vorkytaka', icon: 'GitHub' },
+  { name: 'LinkedIn', url: 'https://linkedin.com/in/', icon: 'LinkedIn' },
+  { name: 'Email', url: 'mailto:hello@vorky.dev', icon: 'Email' },
+  { name: 'CV / Resume', url: '/resume.pdf', icon: 'Resume' },
 ];
 ---
 <Layout title="Vorky" description="Software engineer — minimalist, fast, and thoughtful web.">
@@ -13,10 +15,20 @@ const links = [
     <p>Software engineer crafting clean, fast, and reliable web experiences. I like small surfaces, sharp edges, and boring tech that lasts.</p>
     <p>Currently exploring Astro, edge runtimes, and performance-first UX.</p>
 
-    <div class="links" role="navigation" aria-label="Main links">
-      {links.map((l) => (
-        <a class="link" href={l.url} target={l.url.startsWith('http') ? '_blank' : undefined} rel={l.url.startsWith('http') ? 'noopener noreferrer' : undefined}>{l.name}</a>
-      ))}
+    <div class="terminal-links" role="navigation" aria-label="Main links">
+      <ul>
+        {links.map((l) => {
+          const IconComponent = Icons[l.icon];
+          return (
+            <li>
+              <a href={l.url} target={l.url.startsWith('http') ? '_blank' : undefined} rel={l.url.startsWith('http') ? 'noopener noreferrer' : undefined}>
+                <IconComponent class="icon" />
+                <span>{l.name}</span>
+              </a>
+            </li>
+          );
+        })}
+      </ul>
     </div>
 
     <p class="footer">© {new Date().getFullYear()} Vorky</p>

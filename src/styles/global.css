@@ -37,4 +37,41 @@ a:focus-visible { outline: 2px dashed var(--accent); outline-offset: 3px; border
 .link { border: 1px solid #2d2d2d; padding: .6rem .9rem; border-radius: 10px; color: var(--fg); background: #1b1b1b; }
 .link:hover { background: #242424; text-decoration: none; }
 
+.terminal-links ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.terminal-links li {
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+  position: relative;
+}
+
+.terminal-links a {
+  color: var(--fg);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.terminal-links .icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 0.5rem;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.terminal-links a:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.terminal-links a:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
 .footer { margin-top: 2.5rem; color: var(--muted); font-size: .9rem; }
