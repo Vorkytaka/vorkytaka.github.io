@@ -1,0 +1,40 @@
+---
+import Layout from "../components/Layout.astro";
+const socials = [
+  { name: 'GitHub', url: 'https://github.com/vorkytaka' },
+  { name: 'X/Twitter', url: 'https://x.com/' },
+  { name: 'LinkedIn', url: 'https://linkedin.com/in/' },
+];
+---
+<Layout title="Vorky — Portfolio" description="Personal portfolio of Vorky">
+  <header class="header">
+    <h1 style="margin:0">Hi, I'm Vorky</h1>
+    <span class="tag">Astro • Frontend • Backend</span>
+  </header>
+
+  <section class="grid">
+    <div class="card">
+      <h2>About</h2>
+      <p>Software engineer focused on building clean, fast web apps. This site is a simple starting point—I'll flesh it out soon.</p>
+    </div>
+
+    <div class="card">
+      <h2>Projects</h2>
+      <ul>
+        <li>Project One — tiny description</li>
+        <li>Project Two — tiny description</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Contact</h2>
+      <ul>
+        {socials.map((s) => (
+          <li><a href={s.url} rel="me noopener" target="_blank">{s.name}</a></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <p class="footer">© {new Date().getFullYear()} Vorky. Built with Astro.</p>
+</Layout>

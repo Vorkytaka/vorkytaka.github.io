@@ -1,0 +1,22 @@
+{
+  "name": "vorky-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "engines": {
+    "node": ">=18.14.1"
+  },
+  "devDependencies": {
+    "astro": "^5.13.7"
+  }
+}

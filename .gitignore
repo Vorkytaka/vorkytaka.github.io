@@ -1,0 +1,19 @@
+# Node / Astro
+node_modules/
+.dist/
+.DS_Store
+.env
+.env.*
+# Astro build output
+/dist/
+/.astro/
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+# Editor
+.vscode/
+.idea/
+# Local
+*.local
