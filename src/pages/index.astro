@@ -1,6 +1,7 @@
 ---
 import Layout from "../components/Layout.astro";
 import * as Icons from "../components/icons";
+import { getCurrentLang, getTranslation } from "../i18n/utils";
 
 const links = [
   { name: 'GitHub', url: 'https://github.com/vorkytaka', icon: 'GitHub' },
@@ -8,6 +9,9 @@ const links = [
   { name: 'Email', url: 'mailto:hello@vorky.dev', icon: 'Email' },
   { name: 'CV / Resume', url: '/resume.pdf', icon: 'Resume' },
 ];
+
+const currentLang = getCurrentLang(Astro.url, Astro.request);
+const t = (key) => getTranslation(currentLang, key);
 ---
 <Layout title="Vorkytaka" description="Software engineer — minimalist, fast, and thoughtful web.">
   <section class="stack">
@@ -16,8 +20,8 @@ const links = [
         <span class="primary">Vorky</span><span class="darker">taka</span>
       </a>
     </h1>
-    <p>Software engineer crafting clean, fast, and reliable web experiences. I like small surfaces, sharp edges, and boring tech that lasts.</p>
-    <p>Currently exploring Astro, edge runtimes, and performance-first UX.</p>
+    <p>{t('description.part1')}</p>
+    <p>{t('description.part2')}</p>
 
     <div class="terminal-links" role="navigation" aria-label="Main links">
       <ul>

@@ -1,0 +1,46 @@
+---
+import { languageLabels, getCurrentLang, getLocalizedURL } from '../i18n/utils';
+
+const { url } = Astro;
+const currentLang = getCurrentLang(url);
+---
+
+<div class="language-selector">
+  {Object.entries(languageLabels).map(([lang, label]) => (
+    <a 
+      href={getLocalizedURL(url, lang)} 
+      class={`lang-link ${currentLang === lang ? 'active' : ''}`}
+      aria-current={currentLang === lang ? 'page' : undefined}
+    >
+      {label}
+    </a>
+  ))}
+</div>
+
+<style>
+  .language-selector {
+    display: flex;
+    gap: 0.5rem;
+    margin: 1rem 0;
+  }
+  
+  .lang-link {
+    font-size: 0.9rem;
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    color: var(--muted);
+    transition: all 0.2s;
+  }
+  
+  .lang-link:hover {
+    color: var(--fg);
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+  
+  .lang-link.active {
+    font-weight: bold;
+    color: var(--accent);
+    border-bottom: 2px solid var(--accent);
+  }
+</style>

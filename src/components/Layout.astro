@@ -1,9 +1,12 @@
 ---
 import "../styles/global.css";
+import { getCurrentLang } from "../i18n/utils";
+
 const { title = 'Vorky', description = 'Portfolio' } = Astro.props;
+const currentLang = getCurrentLang(Astro.url, Astro.request);
 ---
 <!doctype html>
-<html lang="en">
+<html lang={currentLang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
