@@ -1,0 +1,44 @@
+---
+import Layout from "../components/Layout.astro";
+import { getCurrentLang, getTranslation } from "../i18n/utils";
+
+// Make sure the page is server-rendered to handle language detection correctly
+export const prerender = false;
+
+const currentLang = getCurrentLang(Astro.url, Astro.request);
+const t = (key) => getTranslation(currentLang, key);
+---
+<Layout title="404 | Vorkytaka" description="Page not found">
+  <section class="stack">
+    <h1>
+      <a href="/" class="header-link">
+        <span class="primary">40</span><span class="darker">4</span>
+      </a>
+    </h1>
+    <p>{t('404.title')}</p>
+    <p>{t('404.message')}</p>
+
+    <div class="terminal-links" role="navigation" aria-label="Navigation">
+      <ul>
+        <li>
+          <a href="/">
+            <span class="primary">→</span>
+            <span>{t('404.button')}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Additional styles specific to 404 page */
+  h1 .primary,
+  h1 .darker {
+    font-size: 3rem;
+  }
+  
+  .terminal-links a .primary {
+    margin-right: 0.5rem;
+  }
+</style>
