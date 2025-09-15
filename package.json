@@ -17,6 +17,8 @@
     "node": ">=18.14.1"
   },
   "devDependencies": {
-    "astro": "^5.13.7"
+    "@astrojs/sitemap": "^3.5.1",
+    "astro": "^5.13.7",
+    "canvas": "^3.2.0"
   }
 }
