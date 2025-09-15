@@ -89,45 +89,6 @@ export function getTranslation(lang, keyPath) {
   return translation;
 }
 
-// Generate URLs for language switching (not needed for automatic detection)
-export function getLocalizedURL(url, lang) {
-  const currentLang = getCurrentLang(url);
-  const pathname = url.pathname;
-
-  if (lang === defaultLang) {
-    // For default language, remove language prefix if it exists
-    return pathname.replace(new RegExp(`^/${currentLang}`), '') || '/';
-  } else {
-    // For non-default languages, add or replace language prefix
-    if (currentLang === defaultLang) {
-      return `/${lang}${pathname}`;
-    } else {
-      return pathname.replace(new RegExp(`^/${currentLang}`), `/${lang}`);
-    }
-  }
-}
-
-// Get translation for a specific key path
-export function getTranslation(lang, keyPath) {
-  const keys = keyPath.split('.');
-  let translation = languages[lang] || languages[defaultLang];
-  
-  for (const key of keys) {
-    if (translation[key] === undefined) {
-      // Fallback to default language if translation is missing
-      translation = languages[defaultLang];
-      for (const defaultKey of keys) {
-        translation = translation[defaultKey];
-        if (translation === undefined) return keyPath; // Return key path if no translation found
-      }
-      return translation;
-    }
-    translation = translation[key];
-  }
-  
-  return translation;
-}
-
 // Generate URLs for language switching
 export function getLocalizedURL(url, lang) {
   const currentLang = getCurrentLang(url);
