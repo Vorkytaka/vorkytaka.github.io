@@ -3,8 +3,8 @@ import Layout from "../components/Layout.astro";
 import * as Icons from "../components/icons";
 import { getCurrentLang, getTranslation } from "../i18n/utils";
 
-// Make sure the page is server-rendered to handle language detection correctly
-export const prerender = false;
+// Change to static rendering for GitHub Pages compatibility
+export const prerender = true;
 
 const links = [
   { name: 'Twitch', url: 'https://twitch.tv/vorkytaka', icon: 'Twitch' },

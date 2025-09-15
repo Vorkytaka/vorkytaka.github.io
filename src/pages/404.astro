@@ -2,8 +2,8 @@
 import Layout from "../components/Layout.astro";
 import { getCurrentLang, getTranslation } from "../i18n/utils";
 
-// Make sure the page is server-rendered to handle language detection correctly
-export const prerender = false;
+// Change to static rendering for GitHub Pages compatibility
+export const prerender = true;
 
 const currentLang = getCurrentLang(Astro.url, Astro.request);
 const t = (key) => getTranslation(currentLang, key);
