@@ -3,7 +3,7 @@
   --fg: #e6e6e6;
   --muted: #a8a8a8;
   --accent: #82e9de;
-  --primary: #ff7b72;
+  --primary: #FF9800;
 }
 
 * { box-sizing: border-box; }
@@ -26,8 +26,8 @@ input, button, textarea, select { font: inherit; }
   padding: 3rem 1.25rem;
 }
 
-h1 { font-size: clamp(2.2rem, 4.5vw, 3rem); line-height: 1.15; margin: 0 0 0.75rem; }
-p { margin: 0 0 1rem; color: var(--muted); }
+h1 { font-size: clamp(2.2rem, 4.5vw, 3rem); line-height: 1.15; margin: 0 0 1rem; }
+p { margin: 0; color: var(--muted); }
 
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
@@ -44,7 +44,7 @@ a:focus-visible { outline: 2px dashed var(--accent); outline-offset: 3px; border
 .darker { color: var(--muted); }
 .primary { color: var(--primary); }
 
-.stack { display: grid; gap: 1.25rem; }
+.stack { display: grid; gap: 1.5rem; }
 .links { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: .5rem; }
 .link { border: 1px solid #2d2d2d; padding: .6rem .9rem; border-radius: 10px; color: var(--fg); background: #1b1b1b; }
 .link:hover { background: #242424; text-decoration: none; }
@@ -52,7 +52,7 @@ a:focus-visible { outline: 2px dashed var(--accent); outline-offset: 3px; border
 .terminal-links ul {
   list-style-type: none;
   padding: 0;
-  margin: 1rem 0;
+  margin: 0;
 }
 
 .terminal-links li {
