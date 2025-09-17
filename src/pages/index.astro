@@ -1,7 +1,6 @@
 ---
 import Layout from "../components/Layout.astro";
 import * as Icons from "../components/icons";
-import { getCurrentLang, getTranslation } from "../i18n/utils";
 
 // Change to static rendering for GitHub Pages compatibility
 export const prerender = true;
@@ -9,22 +8,22 @@ export const prerender = true;
 const links = [
   { name: 'Twitch', url: 'https://twitch.tv/vorkytaka', icon: 'Twitch' },
   { name: 'GitHub', url: 'https://github.com/vorkytaka', icon: 'GitHub' },
-  { name: 'Telegram', url: 'https://t.me/vorkytaka', icon: 'Telegram' },
+  { name: 'Tg Channel', url: 'https://t.me/vorkytaka', icon: 'Telegram' },
+  { name: 'LinkedIn', url: 'https://linkedin.com/in/vorkytaka', icon: 'LinkedIn' },
 ];
-
-const currentLang = getCurrentLang(Astro.url, Astro.request);
-const t = (key) => getTranslation(currentLang, key);
 ---
-<Layout title="Vorkytaka" description="Software engineer — minimalist, fast, and thoughtful web.">
+<Layout title="Vorkytaka" description="Мобильный разработчик, увлекающийся игровой индустрией.">
   <section class="stack">
     <h1>
       <a href="/" class="header-link">
         <span class="primary">Vorky</span><span class="darker">taka</span>
       </a>
     </h1>
-    {t('description').split('\n\n').map((paragraph) => (
-      <p>{paragraph}</p>
-    ))}
+    <p>Привет! Меня зовут <span class="primary">К</span>остя <span class="primary">Д</span>овнар.<br>Мобильный разработчик, увлекающийся игровой индустрией.</p>
+    <p>Иногда я пишу <a href="https://github.com/vorkytaka" class="terminal-link" target="_blank"><Icons.GitHub class="icon" />код</a>. Переодически стримлю <a href="https://twitch.tv/vorkytaka" class="terminal-link" target="_blank"><Icons.Twitch class="icon" />игры</a>.<br>Веду небольшой <a href="https://t.me/vorkytaka" class="terminal-link" target="_blank"><Icons.Telegram class="icon" />блог</a> о всём подряд.</p>
+    <p>Для связи можно написать в <a href="https://t.me/vorky" class="terminal-link" target="_blank"><Icons.Telegram class="icon" />telegram</a> или на <a href="mailto:vorkytaka@gmail.com" class="terminal-link"><Icons.Email class="icon" />почту</a>.</p>
+
+    <hr/>
 
     <div class="terminal-links" role="navigation" aria-label="Main links">
       <ul>

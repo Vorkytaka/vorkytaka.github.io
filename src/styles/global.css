@@ -80,3 +80,33 @@ a:focus-visible { outline: 2px dashed var(--accent); outline-offset: 3px; border
   color: var(--primary);
   text-decoration: none;
 }
+
+.terminal-link {
+  color: var(--fg);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: baseline;
+  vertical-align: baseline;
+  line-height: inherit;
+}
+
+.terminal-link .icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 0.5rem;
+  color: var(--primary);
+  flex-shrink: 0;
+  position: relative;
+  top: 3px;
+}
+
+.terminal-link:hover {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #2d2d2d;
+  margin: 2rem 0;
+}
