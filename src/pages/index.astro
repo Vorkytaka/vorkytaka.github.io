@@ -19,7 +19,9 @@ const links = [
         <span class="primary">Vorky</span><span class="darker">taka</span>
       </a>
     </h1>
-    <p>Привет! Меня зовут <span class="primary">К</span>остя <span class="primary">Д</span>овнар.<br>Мобильный разработчик, увлекающийся игровой индустрией.</p>
+    <p>Привет! Меня зовут <span class="primary">К</span>остя <span class="primary">Д</span>овнар.<br><span class="mobile-dev-trigger" role="button" tabindex="0">Мобильный разработчик</span>, увлекающийся <span class="gaming-trigger" role="button" tabindex="0" style="cursor: pointer; color: var(--primary); text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 4px;">игровой индустрией</span>.</p>
+    <p id="flutter-text" class="hidden">В данный момент Flutter-разработчик мобильных (и не только) приложений, бывший Android.<br>В свое время успел поработать old-school фронтенд-разработчиком, писал магазины на PHP и Python, ботов на Golang.<br>Люблю всё, что связано с разработкой и технологиями.</p>
+    <p id="gaming-text" class="hidden">В играх не привередлив, но так как не хватает времени, то в основном смотрим новинки или классику. Сердце принадлежит Team Fortress 2.<br>Записи прохождений со стримов можно посмотреть <a href="https://www.youtube.com/@VorkytakaTV" class="terminal-link" target="_blank"><Icons.YouTube class="icon" />здесь</a>.</p>
     <p>Иногда я пишу <a href="https://github.com/vorkytaka" class="terminal-link" target="_blank"><Icons.GitHub class="icon" />код</a>. Периодически стримлю <a href="https://twitch.tv/vorkytaka" class="terminal-link" target="_blank"><Icons.Twitch class="icon" />игры</a>.<br>Веду небольшой <a href="https://t.me/vorkytaka" class="terminal-link" target="_blank"><Icons.Telegram class="icon" />блог</a> о всём подряд.</p>
     <p>Для связи можно написать в <a href="https://t.me/vorky" class="terminal-link" target="_blank"><Icons.Telegram class="icon" />telegram</a> или на <a href="mailto:vorkytaka@gmail.com" class="terminal-link"><Icons.Email class="icon" />почту</a>.</p>
 
@@ -41,4 +43,64 @@ const links = [
       </ul>
     </div>
   </section>
+
+<style>
+  .mobile-dev-trigger,
+  .gaming-trigger {
+    cursor: pointer !important;
+    color: var(--primary) !important; 
+    text-decoration: underline !important;
+    text-decoration-style: dotted !important;
+    text-underline-offset: 4px !important;
+    user-select: none !important;
+  }
+  
+  .mobile-dev-trigger:hover,
+  .gaming-trigger:hover {
+    opacity: 0.8 !important;
+  }
+  
+  .hidden {
+    display: none;
+  }
+</style>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Setup for mobile developer trigger
+    setupToggle('.mobile-dev-trigger', 'flutter-text');
+    
+    // Setup for gaming trigger
+    setupToggle('.gaming-trigger', 'gaming-text');
+    
+    // Helper function to setup toggle functionality
+    function setupToggle(triggerSelector, textId) {
+      const trigger = document.querySelector(triggerSelector);
+      const textElement = document.getElementById(textId);
+      
+      if (trigger && textElement) {
+        // Add accessibility attributes
+        trigger.setAttribute('role', 'button');
+        trigger.setAttribute('tabindex', '0');
+        
+        // Toggle function
+        function toggleText() {
+          textElement.classList.toggle('hidden');
+        }
+        
+        // Add click event
+        trigger.addEventListener('click', toggleText);
+        
+        // Add keyboard event (using keydown event)
+        trigger.addEventListener('keydown', function(e) {
+          // Use keyCode for broader compatibility
+          if (e.keyCode === 13 || e.keyCode === 32) { // Enter or Space
+            e.preventDefault();
+            toggleText();
+          }
+        });
+      }
+    }
+  });
+</script>
 </Layout>
