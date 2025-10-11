@@ -131,4 +131,8 @@ hr {
 
 .toggle-content {
   display: block;
+  border-left: 3px solid var(--primary);
+  padding-left: 1rem;
+  margin-left: 0.5rem;
+  margin-top: 0.5rem;
 }
