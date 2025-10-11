@@ -58,6 +58,98 @@ Edit `src/config/site.ts` to update:
 - Social media links
 - SEO defaults
 
+## Text Toggle Component - Step-by-Step Guide
+
+The site includes a reusable `TextToggle` component that allows you to create clickable text that reveals hidden content. Perfect for expandable sections, details, or interactive content.
+
+### Step 1: Import the Component
+Add the import to your page's frontmatter:
+
+```astro
+---
+import TextToggle from "../components/TextToggle.astro";
+---
+```
+
+### Step 2: Create the Toggle Trigger
+Use the `TextToggle` component with a unique `targetId`:
+
+```astro
+<p>Click <TextToggle targetId="my-content">here</TextToggle> to see more.</p>
+```
+
+### Step 3: Create the Hidden Content
+Add the content you want to toggle with matching ID and required classes:
+
+```astro
+<p id="my-content" class="toggle-content hidden">
+  This content will be hidden by default and shown when the trigger is clicked!
+</p>
+```
+
+### Step 4: Complete Example
+Here's a full working example:
+
+```astro
+---
+import PageTemplate from "../components/PageTemplate.astro";
+import TextToggle from "../components/TextToggle.astro";
+
+export const prerender = true;
+---
+
+<PageTemplate title="My Page" description="Page with toggles">
+  <h1>Welcome</h1>
+  
+  <p>Learn about <TextToggle targetId="skills">my skills</TextToggle> and 
+     <TextToggle targetId="experience">experience</TextToggle>.</p>
+  
+  <div id="skills" class="toggle-content hidden">
+    <h3>My Skills</h3>
+    <ul>
+      <li>JavaScript/TypeScript</li>
+      <li>React & Astro</li>
+      <li>Node.js</li>
+    </ul>
+  </div>
+  
+  <div id="experience" class="toggle-content hidden">
+    <h3>Experience</h3>
+    <p>I have 5+ years of web development experience...</p>
+  </div>
+</PageTemplate>
+```
+
+### Step 5: Styling (Optional)
+You can add custom styles to your toggle triggers:
+
+```astro
+<TextToggle targetId="info" class="custom-style">Click me</TextToggle>
+
+<style>
+  .custom-style {
+    background: var(--primary);
+    color: var(--bg);
+    padding: 2px 6px;
+    border-radius: 4px;
+    text-decoration: none !important;
+  }
+</style>
+```
+
+### Key Points:
+- ✅ **Automatic**: No JavaScript needed in your pages - it's global!
+- ✅ **Accessible**: Includes ARIA attributes and keyboard support (Enter/Space)
+- ✅ **Reusable**: Works on any page that uses the Layout component
+- ✅ **Flexible**: Can toggle any HTML content (text, images, forms, etc.)
+- ✅ **Multiple**: Use as many toggles as needed on a single page
+
+### Required Elements:
+1. `<TextToggle targetId="unique-id">Trigger Text</TextToggle>`
+2. `<element id="unique-id" class="toggle-content hidden">Hidden Content</element>`
+
+The `targetId` must match the `id` of the element you want to toggle, and the hidden element must have both `toggle-content` and `hidden` classes.
+
 ## Notes
 
 - All pages are statically generated (`prerender = true`)

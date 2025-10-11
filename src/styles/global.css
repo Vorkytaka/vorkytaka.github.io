@@ -110,3 +110,25 @@ hr {
   border-top: 1px solid #2d2d2d;
   margin: 2rem 0;
 }
+
+/* Text Toggle Component Styles */
+.text-toggle {
+  cursor: pointer !important;
+  color: var(--primary) !important; 
+  text-decoration: underline !important;
+  text-decoration-style: dotted !important;
+  text-underline-offset: 4px !important;
+  user-select: none !important;
+}
+
+.text-toggle:hover {
+  opacity: 0.8 !important;
+}
+
+.toggle-content.hidden {
+  display: none;
+}
+
+.toggle-content {
+  display: block;
+}

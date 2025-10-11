@@ -1,0 +1,17 @@
+---
+// TextToggle Component
+// Usage: <TextToggle targetId="some-id">Click me</TextToggle>
+export interface Props {
+  targetId: string;
+  class?: string;
+}
+
+const { targetId, class: className = "" } = Astro.props;
+---
+
+<span 
+  class={`text-toggle ${className}`} 
+  data-target={targetId}
+  role="button"
+  tabindex="0"
+><slot /></span>

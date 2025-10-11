@@ -27,5 +27,53 @@ const {
     <main class={containerClass}>
       <slot />
     </main>
+    <script is:inline>
+      // Global Text Toggle Script
+      (function() {
+        function initializeTextToggles() {
+          const toggleTriggers = document.querySelectorAll('.text-toggle:not([data-initialized])');
+          
+          toggleTriggers.forEach(trigger => {
+            const targetId = trigger.getAttribute('data-target');
+            if (!targetId) return;
+            
+            const targetElement = document.getElementById(targetId);
+            if (!targetElement) return;
+            
+            // Mark as initialized to prevent double initialization
+            trigger.setAttribute('data-initialized', 'true');
+            
+            // Add accessibility attributes
+            trigger.setAttribute('aria-expanded', 'false');
+            trigger.setAttribute('aria-controls', targetElement.id);
+            
+            // Toggle function
+            function toggleText() {
+              const isHidden = targetElement.classList.contains('hidden');
+              targetElement.classList.toggle('hidden');
+              trigger.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+            }
+            
+            // Add click event
+            trigger.addEventListener('click', toggleText);
+            
+            // Add keyboard event
+            trigger.addEventListener('keydown', function(e) {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleText();
+              }
+            });
+          });
+        }
+
+        // Initialize when DOM is ready
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', initializeTextToggles);
+        } else {
+          initializeTextToggles();
+        }
+      })();
+    </script>
   </body>
 </html>
