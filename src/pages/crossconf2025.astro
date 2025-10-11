@@ -1,0 +1,22 @@
+---
+import PageTemplate from "../components/PageTemplate.astro";
+import * as Icons from "../components/icons";
+import { siteConfig } from "../config/site";
+
+// Change to static rendering for GitHub Pages compatibility
+export const prerender = true;
+---
+<PageTemplate 
+  title="CrossConf 2025"
+  description="Костя Довнар выступает на конференции CrossConf"
+  headerTitle="Cross"
+  headerSubtitle="Conf"
+  showSocialLinks={true}
+  path="/crossconf2025"
+>
+  
+  <p>Привет, <a href="https://crossconf.com/" class="terminal-link" target="_blank"><Icons.CrossConf2025 class="icon" />CrossConf</a>!</p>
+  <p>Меня зовут Костя Довнар и я расскажу вам о том <a href="https://crossconf.com/topic.php?id=13" class="terminal-link" target="_blank">как добавить во Flutter-приложение таджикский язык</a>. Это история о боли и страдании, но одновременно о победе и радости.</p>
+  <p>Всегда рад обсудить темы, связанные с мобильной разработкой, IT-технологиями и компьютерными играми. Смело подходите и здоровайтесь.</p>
+  <p>Больше информации обо мне вы можете найти на <a href="/" class="terminal-link">главной странице</a>.</p>
+</PageTemplate>

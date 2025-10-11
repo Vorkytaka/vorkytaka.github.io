@@ -5,3 +5,4 @@ export { default as Resume } from './Resume.astro';
 export { default as Twitch } from './Twitch.astro';
 export { default as Telegram } from './Telegram.astro';
 export { default as YouTube } from './YouTube.astro';
+export { default as CrossConf2025 } from './CrossConf2025.astro';
