@@ -1,0 +1,24 @@
+---
+interface Props {
+  title?: string;
+  subtitle?: string;
+  homeLink?: boolean;
+  class?: string;
+}
+
+const { 
+  title = "Vorky", 
+  subtitle = "taka", 
+  homeLink = true,
+  class: className = ""
+} = Astro.props;
+
+const Tag = homeLink ? 'a' : 'div';
+const linkProps = homeLink ? { href: '/' } : {};
+---
+
+<h1 class={className}>
+  <Tag class={homeLink ? "header-link" : ""} {...linkProps}>
+    <span class="primary">{title}</span><span class="darker">{subtitle}</span>
+  </Tag>
+</h1>

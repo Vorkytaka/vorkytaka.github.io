@@ -1,0 +1,56 @@
+---
+import type { PageMeta } from '../config/site';
+import { siteConfig, createPageTitle, createCanonicalUrl } from '../config/site';
+
+interface Props extends Partial<PageMeta> {
+  path?: string;
+}
+
+const { 
+  title, 
+  description = siteConfig.description, 
+  keywords = [],
+  ogImage,
+  canonicalUrl,
+  path = '/'
+} = Astro.props;
+
+const pageTitle = createPageTitle(title);
+const canonical = canonicalUrl || createCanonicalUrl(path);
+const ogImageUrl = ogImage ? `${siteConfig.url}${ogImage}` : `${siteConfig.url}/og-image.png`;
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{pageTitle}</title>
+<meta name="description" content={description} />
+{keywords.length > 0 && <meta name="keywords" content={keywords.join(', ')} />}
+<meta name="author" content={siteConfig.author.name} />
+<meta name="theme-color" content="#212121" />
+
+<!-- Canonical URL -->
+<link rel="canonical" href={canonical} />
+
+<!-- Favicons -->
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="/favicon.png" type="image/png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+<!-- Open Graph -->
+<meta property="og:title" content={pageTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:site_name" content={siteConfig.name} />
+<meta property="og:type" content="website" />
+<meta property="og:image" content={ogImageUrl} />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={pageTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImageUrl} />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet" />

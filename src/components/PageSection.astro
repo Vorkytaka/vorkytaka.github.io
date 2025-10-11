@@ -1,0 +1,22 @@
+---
+interface Props {
+  class?: string;
+  tag?: 'section' | 'article' | 'div';
+  stack?: boolean;
+}
+
+const { 
+  class: className = "", 
+  tag: Tag = 'section',
+  stack = true 
+} = Astro.props;
+
+const classes = [
+  stack && 'stack',
+  className
+].filter(Boolean).join(' ');
+---
+
+<Tag class={classes}>
+  <slot />
+</Tag>

@@ -1,0 +1,50 @@
+---
+import Layout from "../components/Layout.astro";
+import Header from "../components/Header.astro";
+import PageSection from "../components/PageSection.astro";
+import SocialLinks from "../components/SocialLinks.astro";
+import { siteConfig } from "../config/site";
+import type { PageMeta } from '../config/site';
+
+// Change to static rendering for GitHub Pages compatibility
+export const prerender = true;
+
+interface Props extends Partial<PageMeta> {
+  headerTitle?: string;
+  headerSubtitle?: string;
+  showHeader?: boolean;
+  showSocialLinks?: boolean;
+  path?: string;
+}
+
+const { 
+  headerTitle,
+  headerSubtitle,
+  showHeader = true,
+  showSocialLinks = false,
+  path,
+  ...pageProps
+} = Astro.props;
+---
+<Layout {...pageProps} path={path}>
+  <PageSection>
+    {showHeader && (
+      <Header 
+        title={headerTitle} 
+        subtitle={headerSubtitle}
+      />
+    )}
+    
+    <slot />
+    
+    {showSocialLinks && (
+      <>
+        <hr/>
+        <SocialLinks 
+          links={siteConfig.social} 
+          ariaLabel="Main links" 
+        />
+      </>
+    )}
+  </PageSection>
+</Layout>

@@ -1,0 +1,32 @@
+---
+import type { SocialLink } from '../config/site';
+import * as Icons from './icons';
+
+interface Props {
+  links: SocialLink[];
+  ariaLabel?: string;
+}
+
+const { links, ariaLabel = "Social links" } = Astro.props;
+---
+
+<div class="terminal-links" role="navigation" aria-label={ariaLabel}>
+  <ul>
+    {links.map((link) => {
+      const IconComponent = Icons[link.icon as keyof typeof Icons];
+      return (
+        <li>
+          <a 
+            href={link.url} 
+            target={link.url.startsWith('http') ? '_blank' : undefined} 
+            rel={link.url.startsWith('http') ? 'noopener noreferrer' : undefined}
+            title={link.description || link.name}
+          >
+            {IconComponent && <IconComponent class="icon" />}
+            <span>{link.name}</span>
+          </a>
+        </li>
+      );
+    })}
+  </ul>
+</div>

@@ -20,5 +20,9 @@
     "@astrojs/sitemap": "^3.5.1",
     "astro": "^5.13.7",
     "canvas": "^3.2.0"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "typescript": "^5.9.3"
   }
 }

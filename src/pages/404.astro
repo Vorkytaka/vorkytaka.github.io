@@ -1,31 +1,30 @@
 ---
-import Layout from "../components/Layout.astro";
+import PageTemplate from "../components/PageTemplate.astro";
 
 // Change to static rendering for GitHub Pages compatibility
 export const prerender = true;
 ---
-<Layout title="404 | Vorkytaka" description="Страница не найдена">
-  <section class="stack">
-    <h1>
-      <a href="/" class="header-link">
-        <span class="primary">40</span><span class="darker">4</span>
-      </a>
-    </h1>
-    <p>Страница не найдена</p>
-    <p>Страница, которую вы ищете, не существует или была перемещена.</p>
+<PageTemplate 
+  title="404"
+  description="Страница не найдена"
+  headerTitle="40"
+  headerSubtitle="4"
+  path="/404"
+>
+  <p>Страница не найдена</p>
+  <p>Страница, которую вы ищете, не существует или была перемещена.</p>
 
-    <div class="terminal-links" role="navigation" aria-label="Navigation">
-      <ul>
-        <li>
-          <a href="/">
-            <span class="primary">→</span>
-            <span>На главную</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </section>
-</Layout>
+  <div class="terminal-links" role="navigation" aria-label="Navigation">
+    <ul>
+      <li>
+        <a href="/">
+          <span class="primary">→</span>
+          <span>На главную</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</PageTemplate>
 
 <style>
   /* Additional styles specific to 404 page */

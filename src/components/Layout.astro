@@ -1,25 +1,30 @@
 ---
 import "../styles/global.css";
+import SEO from "./SEO.astro";
+import type { PageMeta } from '../config/site';
 
-const { title = 'Vorky', description = 'Portfolio' } = Astro.props;
+interface Props extends Partial<PageMeta> {
+  lang?: string;
+  class?: string;
+  containerClass?: string;
+  path?: string;
+}
+
+const { 
+  lang = 'ru',
+  class: bodyClass = "",
+  containerClass = "container",
+  path,
+  ...seoProps
+} = Astro.props;
 ---
 <!doctype html>
-<html lang="ru">
+<html lang={lang}>
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <meta name="theme-color" content="#212121" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="icon" href="/favicon.png" type="image/png" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet" />
+    <SEO {...seoProps} path={path} />
   </head>
-  <body>
-    <main class="container">
+  <body class={bodyClass}>
+    <main class={containerClass}>
       <slot />
     </main>
   </body>
