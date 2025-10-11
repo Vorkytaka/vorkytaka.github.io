@@ -28,7 +28,7 @@ export interface PageMeta {
 
 export const siteConfig: SiteConfig = {
   name: "Vorkytaka",
-  title: "Vorkytaka - Mobile Developer",
+  title: "Vorkytaka",
   description: "Мобильный разработчик, увлекающийся игровой индустрией.",
   url: "https://vorkytaka.github.io",
   author: {
