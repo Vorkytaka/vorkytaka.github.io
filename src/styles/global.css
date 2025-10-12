@@ -84,7 +84,7 @@ a:focus-visible { outline: 2px dashed var(--accent); outline-offset: 3px; border
 .terminal-link {
   color: var(--fg);
   text-decoration: none;
-  display: inline-flex;
+  display: inline;
   align-items: baseline;
   vertical-align: baseline;
   line-height: inherit;
