@@ -30,7 +30,7 @@ export const siteConfig: SiteConfig = {
   name: "Vorkytaka",
   title: "Vorkytaka",
   description: "Мобильный разработчик, увлекающийся игровой индустрией.",
-  url: "https://vorkytaka.github.io",
+  url: "https://vorky.io",
   author: {
     name: "Костя Довнар",
     email: "vorkytaka@gmail.com",
